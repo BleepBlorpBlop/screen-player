@@ -1,0 +1,190 @@
+.public-player {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+}
+
+.player-header {
+  text-align: center;
+  color: white;
+  padding: 3rem 1rem;
+  margin-bottom: 2rem;
+}
+
+.player-header h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.player-header .description {
+  font-size: 1.2rem;
+  opacity: 0.9;
+  margin-bottom: 2rem;
+}
+
+.share-button {
+  background: white;
+  color: #667eea;
+  border: none;
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+  border-radius: 50px;
+  font-weight: bold;
+  transition: all 0.3s;
+}
+
+.share-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.playlist h2 {
+  color: white;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.scene-card {
+  background: white;
+  border-radius: 12px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.scene-number {
+  font-size: 0.9rem;
+  color: #667eea;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.scene-content {
+  display: flex;
+  gap: 2rem;
+}
+
+.album-art {
+  flex-shrink: 0;
+}
+
+.album-art img {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+.scene-info {
+  flex: 1;
+}
+
+.song-info {
+  margin-bottom: 1.5rem;
+}
+
+.song-title {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: #333;
+}
+
+.song-artist {
+  color: #666;
+  margin-bottom: 1rem;
+}
+
+.spotify-link {
+  display: inline-block;
+  background: #1DB954;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: all 0.3s;
+}
+
+.spotify-link:hover {
+  background: #1ed760;
+  transform: translateY(-1px);
+}
+
+.scene-heading {
+  font-size: 1.1rem;
+  color: #667eea;
+  margin-bottom: 0.5rem;
+  font-family: 'Courier New', monospace;
+}
+
+.scene-text {
+  font-family: 'Courier New', monospace;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  white-space: pre-wrap;
+  color: #333;
+  background: #f9f9f9;
+  padding: 1rem;
+  border-radius: 4px;
+  border-left: 3px solid #667eea;
+}
+
+.player-footer {
+  text-align: center;
+  padding: 3rem 1rem;
+  color: white;
+}
+
+.player-footer p {
+  margin-bottom: 1rem;
+  opacity: 0.9;
+}
+
+.share-button-footer {
+  background: rgba(255,255,255,0.2);
+  color: white;
+  border: 2px solid white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 25px;
+  font-weight: bold;
+}
+
+.share-button-footer:hover {
+  background: rgba(255,255,255,0.3);
+}
+
+.loading-screen, .error-screen {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-size: 1.5rem;
+  color: white;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+@media (max-width: 768px) {
+  .player-header h1 {
+    font-size: 2rem;
+  }
+  
+  .scene-content {
+    flex-direction: column;
+  }
+  
+  .album-art img {
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
+    display: block;
+  }
+  
+  .scene-card {
+    padding: 1.5rem;
+  }
+}
