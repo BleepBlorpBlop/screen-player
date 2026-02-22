@@ -15,7 +15,7 @@ function Login({ onLogin }) {
     setLoading(true);
 
     try {
-      const response = await axios.post('/api/auth/login', { email, password });
+      const response = await axios.post(`${API_URL}/api/auth/login`, { email, password });
       onLogin(response.data.token);
     } catch (err) {
       setError(err.response?.data?.error || 'Login failed. Please try again.');
