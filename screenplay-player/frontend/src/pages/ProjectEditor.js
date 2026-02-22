@@ -19,7 +19,7 @@ function ProjectEditor() {
 
   const loadProject = async () => {
     const token = localStorage.getItem('token');
-    const response = await axios.get(`/api/admin/projects/${id}`, {
+    axios.get(`${API_URL}/api/admin/projects/${id}`, {
       headers: { Authorization: `Bearer ${token}` }
     });
     setProject(response.data);
@@ -27,7 +27,7 @@ function ProjectEditor() {
 
   const loadScenes = async () => {
     const token = localStorage.getItem('token');
-    const response = await axios.get(`/api/admin/projects/${id}/scenes`, {
+    const response = await axios.get(`${API_URL}/api/admin/projects/${id}/scenes`, {
       headers: { Authorization: `Bearer ${token}` }
     });
     setScenes(response.data);
@@ -35,7 +35,7 @@ function ProjectEditor() {
 
   const togglePublish = async () => {
     const token = localStorage.getItem('token');
-    await axios.put(`/api/admin/projects/${id}`, 
+    await axios.put(`${API_URL}/api/admin/projects/${id}`, 
       { ...project, is_published: !project.is_published },
       { headers: { Authorization: `Bearer ${token}` }}
     );
@@ -45,7 +45,7 @@ function ProjectEditor() {
   const searchSpotify = async (query) => {
     if (!query) return;
     const token = localStorage.getItem('token');
-    const response = await axios.post('/api/spotify/search',
+    const response = await axios.post(`${API_URL}/api/spotify/search`,
       { query, projectId: id },
       { headers: { Authorization: `Bearer ${token}` }}
     );
@@ -55,11 +55,11 @@ function ProjectEditor() {
   const handleSaveScene = async (scene) => {
     const token = localStorage.getItem('token');
     if (scene.id) {
-      await axios.put(`/api/admin/scenes/${scene.id}`, scene, {
+      await axios.put(`${API_URL}/api/admin/scenes/${scene.id}`, scene, {
         headers: { Authorization: `Bearer ${token}` }
       });
     } else {
-      await axios.post(`/api/admin/projects/${id}/scenes`, scene, {
+      await axios.post(`${API_URL}/api/admin/projects/${id}/scenes`, scene, {
         headers: { Authorization: `Bearer ${token}` }
       });
     }
@@ -70,7 +70,7 @@ function ProjectEditor() {
   const handleDeleteScene = async (sceneId) => {
     if (!window.confirm('Delete this scene?')) return;
     const token = localStorage.getItem('token');
-    await axios.delete(`/api/admin/scenes/${sceneId}`, {
+    await axios.delete(`${API_URL}/api/admin/scenes/${sceneId}`, {
       headers: { Authorization: `Bearer ${token}` }
     });
     loadScenes();
