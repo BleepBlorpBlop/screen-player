@@ -23,7 +23,7 @@ function Dashboard({ onLogout }) {
   const loadProjects = async () => {
     try {
       const token = localStorage.getItem('token');
-      const response = await axios.get('/api/admin/projects', {
+      const response = await axios.get(`${API_URL}/api/admin/projects`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       setProjects(response.data);
@@ -38,7 +38,7 @@ function Dashboard({ onLogout }) {
     e.preventDefault();
     try {
       const token = localStorage.getItem('token');
-      await axios.post('/api/admin/projects', newProject, {
+      await axios.post(`${API_URL}/api/admin/projects`, newProject, {
         headers: { Authorization: `Bearer ${token}` }
       });
       setNewProject({ title: '', slug: '', description: '', spotify_client_id: '', spotify_client_secret: '' });
@@ -54,7 +54,7 @@ function Dashboard({ onLogout }) {
     
     try {
       const token = localStorage.getItem('token');
-      await axios.delete(`/api/admin/projects/${id}`, {
+      await axios.delete(`${API_URL}/api/admin/projects/${id}`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       loadProjects();
