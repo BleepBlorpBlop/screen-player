@@ -19,7 +19,7 @@ function ProjectEditor() {
 
   const loadProject = async () => {
     const token = localStorage.getItem('token');
-    axios.get(`${API_URL}/api/admin/projects/${id}`, {
+   const response = await axios.get(`${API_URL}/api/admin/projects/${id}`, {
       headers: { Authorization: `Bearer ${token}` }
     });
     setProject(response.data);
